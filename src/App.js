@@ -8,29 +8,37 @@ import GlobalStyle from "./components/GlobalStyle";
 // Routed Imports
 import ContactUs from "./pages/ContactUs";
 import OurWork from "./pages/OurWork";
-import { Switch, Route } from "react-router-dom";
+import { Switch, Route, useLocation } from "react-router-dom";
 import MovieDetail from "./pages/MovieDetail";
 
+// animation
+import { AnimatePresence } from "framer-motion";
+
 function App() {
+    // Get Key of the current page
+    const location = useLocation();
+    
     return (
         <div className="App">
             <GlobalStyle />
             <Nav />
-            {/* Routing */}
-            <Switch>
-                <Route path="/" exact>
-                    <AboutUs />
-                </Route>
-                <Route path="/work" exact>
-                    <OurWork />
-                </Route>
-                <Route path="/work/:id">
-                    <MovieDetail />
-                </Route>
-                <Route path="/contactus">
-                    <ContactUs />
-                </Route>
-            </Switch>
+            <AnimatePresence >
+                {/* Routing */}
+                <Switch location={location} key={location.pathname}>
+                    <Route path="/" exact>
+                        <AboutUs />
+                    </Route>
+                    <Route path="/work" exact>
+                        <OurWork />
+                    </Route>
+                    <Route path="/work/:id">
+                        <MovieDetail />
+                    </Route>
+                    <Route path="/contactus">
+                        <ContactUs />
+                    </Route>
+                </Switch>
+            </AnimatePresence>
         </div>
     );
 }

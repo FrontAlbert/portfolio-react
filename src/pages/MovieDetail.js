@@ -3,6 +3,10 @@ import styled from "styled-components";
 import { useHistory } from "react-router-dom";
 import { MovieState } from "../movieState";
 
+// Animations
+import { motion } from "framer-motion";
+import { pageAnimation } from "../animation";
+
 const MovieDetail = () => {
     const history = useHistory();
     const url = history.location.pathname;
@@ -21,7 +25,12 @@ const MovieDetail = () => {
         <>
             {/* Render when movie is avaliable and loaded before rendering */}
             {movie && (
-                <Details>
+                <Details
+                    variants={pageAnimation}
+                    exit="exit"
+                    initial="hidden"
+                    animate="show"
+                >
                     <HeadLine>
                         <h2>{movie.title}</h2>
                         <img src={movie.mainImg} alt="1" />
@@ -44,7 +53,7 @@ const MovieDetail = () => {
     );
 };
 
-const Details = styled.div`
+const Details = styled(motion.div)`
     color: white;
 `;
 
@@ -75,13 +84,12 @@ const Awards = styled.div`
 `;
 
 const ImageDisplay = styled.div`
-min-height:50vh
-img{
-    width:100%;
-    height:100%;
-    object-fit:cover;
-
-}`;
+    min-height: 50vh img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+    }
+`;
 
 const AwardStyle = styled.div`
     padding: 5rem;
