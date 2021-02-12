@@ -17,12 +17,12 @@ import { AnimatePresence } from "framer-motion";
 function App() {
     // Get Key of the current page
     const location = useLocation();
-    
+
     return (
         <div className="App">
             <GlobalStyle />
             <Nav />
-            <AnimatePresence >
+            <AnimatePresence>
                 {/* Routing */}
                 <Switch location={location} key={location.pathname}>
                     <Route path="/" exact>
@@ -34,7 +34,7 @@ function App() {
                     <Route path="/work/:id">
                         <MovieDetail />
                     </Route>
-                    <Route path="/contactus">
+                    <Route path="/contact">
                         <ContactUs />
                     </Route>
                 </Switch>

@@ -18,6 +18,9 @@ import {
 } from "../animation";
 import { useScroll } from "../components/useScroll";
 
+// Scroll to Top
+import ScrollTop from "../components/ScrollTop";
+
 const OurWork = () => {
     const [elements, controls] = useScroll();
     const [elements2, controls2] = useScroll();
