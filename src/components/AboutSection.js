@@ -7,25 +7,9 @@ import { About, Description, Image, Hide } from "../styles";
 // Framer Motion
 import { motion } from "framer-motion";
 import { titleAnimation, fade, photoAnimation } from "../animation";
+import Wave from "./wave";
 
 const AboutSection = () => {
-    // const titleAnimate = {
-    //     hidden: { opacity: 0 },
-    //     show: { opacity: 1, transition: { duration: 2 } },
-    // };
-    // const container = {
-    //     hidden: { x: 100 },
-    //     show: {
-    //         x: 0,
-    //         transition: {
-    //             duration: 0.75,
-    //             ease: "easeOut",
-    //             staggerChildren: 1,
-    //             when: "afterChildren",
-    //         },
-    //     },
-    // };
-
     return (
         <About>
             <Description>
@@ -57,6 +41,7 @@ const AboutSection = () => {
                     alt="camera guy"
                 />
             </Image>
+            <Wave />
         </About>
     );
 };
